@@ -1,3 +1,14 @@
+# Addon info
+bl_info = {
+    'name': 'Archway Pro',
+    'author': 'Ryan Grzesiak',
+    'version': (1, 0, 0),
+    'blender': (2, 74),
+    'location': 'View3D > UI panel > Add Tools',
+    'description': 'To use Blender more efficently',
+    'category': '3D View'
+}
+
 import bpy
 import math
 import mathutils
