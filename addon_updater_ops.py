@@ -835,7 +835,7 @@ def register(bl_info):
 	#updater.addon = # define at top of module, must be done first
 
 	# Website for manual addon download, optional 
-	updater.website = "https://github.com/BlenderIgnite/archway-pro/"
+	updater.website = "https://blenderignite.selz.com"
 	
 	# used to check/compare versions
 	updater.current_version = bl_info["version"] 

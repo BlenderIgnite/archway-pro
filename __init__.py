@@ -2,7 +2,7 @@
 bl_info = {
     'name': 'Archway Pro',
     'author': 'Ryan Grzesiak',
-    'version': (1, 0, 0),
+    'version': (1, 0, 1),
     'blender': (2, 74),
     'location': '3D View > Tool Shelf > Ignite > Archway Pro',
     'description': 'To extend the functionality of the "Simple Deform" Modifier in Blender to allow for better control and animation',
