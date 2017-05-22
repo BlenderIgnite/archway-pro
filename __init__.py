@@ -4,8 +4,8 @@ bl_info = {
     'author': 'Ryan Grzesiak',
     'version': (1, 0, 0),
     'blender': (2, 74),
-    'location': 'View3D > UI panel > Add Tools',
-    'description': 'To use Blender more efficently',
+    'location': '3D View > Tool Shelf > Ignite > Archway Pro',
+    'description': 'To extend the functionality of the "Simple Deform" Modifier in Blender to allow for better control and animation',
     'category': '3D View'
 }
 
@@ -975,6 +975,7 @@ class SimpleDeformPanel(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_region_type = "TOOLS"
     bl_context = "objectmode"
+    bl_category = "Ignite"
     
     @classmethod
     def poll(cls, context):
@@ -1013,6 +1014,9 @@ class SimpleDeformPanel(bpy.types.Panel):
         object = context.object
         layout = self.layout
         scene = context.scene
+        
+        # Check Github for new version
+        addon_updater_ops.check_for_update_background(context)
         
         col = layout.column(align=True)
         
@@ -1069,8 +1073,9 @@ class SimpleDeformPanel(bpy.types.Panel):
             else:
                 col = box.column(align=True)
                 col.label(text="Missing Modifier") 
- 
-
+        
+        # If update available, poll new version
+        addon_updater_ops.update_notice_box_ui(self, context)
  
 # Archway preferences
 class ArchwayPreferences(bpy.types.AddonPreferences):
@@ -1081,7 +1086,7 @@ class ArchwayPreferences(bpy.types.AddonPreferences):
     auto_check_update = bpy.props.BoolProperty(
         name = "Auto-check for Update",
         description = "If enabled, auto-check for updates using an interval",
-        default = False,
+        default = True,
         )
     
     updater_intrval_months = bpy.props.IntProperty(
